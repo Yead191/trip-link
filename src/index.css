@@ -1,0 +1,108 @@
+@import 'tailwindcss';
+
+/* ============================================================
+   TripLink Brand Theme — exact palette from brand guidelines
+   ============================================================ */
+@theme {
+  /* Primary brand colors */
+  --color-navy: #03102f; /* Deep Navy — main backgrounds, hero */
+  --color-midnight: #1c2951; /* Midnight Blue — secondary backgrounds */
+  --color-royal: #384460; /* Royal Blue — cards, icons, dark elements */
+  --color-purple: #645bdf; /* Primary Purple — primary buttons, logo accent */
+  --color-indigo: #626d9d; /* Soft Indigo — secondary UI elements */
+
+  /* Neutral colors */
+  --color-offwhite: #f2f3f7; /* Off White — section backgrounds */
+  --color-bluegray: #b9c3df; /* Light Blue Gray — borders & dividers */
+  --color-mediumgray: #acafd3; /* Medium Gray — secondary text */
+  --color-darkgray: #535867; /* Dark Gray — body text */
+
+  /* Status colors */
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #3f7bff; /* Accent Blue */
+
+  /* Gradient stop */
+  --color-gradient-mid: #4c67f5;
+
+  /* Fonts */
+  --font-display: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-darkgray);
+    background-color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    color: var(--color-navy);
+  }
+}
+
+@layer utilities {
+  /* Official brand primary gradient: #645BDF → #4C67F5 → #3F7BFF */
+  .brand-gradient {
+    background-image: linear-gradient(
+      120deg,
+      var(--color-purple) 0%,
+      var(--color-gradient-mid) 50%,
+      var(--color-info) 100%
+    );
+  }
+
+  .brand-gradient-text {
+    background-image: linear-gradient(
+      120deg,
+      var(--color-purple) 0%,
+      var(--color-gradient-mid) 50%,
+      var(--color-info) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .hero-glow {
+    background: radial-gradient(
+        600px circle at 20% 20%,
+        rgba(100, 91, 223, 0.25),
+        transparent 60%
+      ),
+      radial-gradient(
+        500px circle at 85% 30%,
+        rgba(63, 123, 255, 0.22),
+        transparent 55%
+      );
+  }
+}
+
+@keyframes float-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-float-up {
+  animation: float-up 0.7s ease-out both;
+}
